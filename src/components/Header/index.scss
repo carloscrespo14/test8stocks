@@ -1,0 +1,21 @@
+@import '../../variables';
+
+.header {
+    display: flex;
+    width: 99.9%;
+    height: 180px;
+    border-bottom: .4px solid $grey-color;
+    border-top-right-radius: 5px;
+    background-color: $secondary-color;
+    flex-direction: column;
+    h1 {
+        color: $text-color;
+        padding: 10px 20px 0px; 
+        font-size: 2em;
+    }
+    p{
+        color: $text-color2;
+        padding: 0px 20px; 
+        margin: 0;
+    }
+}

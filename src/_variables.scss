@@ -1,8 +1,31 @@
-$base-color: #c6538c;
-$base-color-dark: rgba($base-color, 0.88);
+@import './assets/fonts/fonts';
 
-$primary-color: #c6538c;
-$primary-color-dark: rgba($base-color, 0.88);
+/* colors variables */
+$lavanda-color: #7664EF;
 
-$second-color: #c6538c;
-$second-color-dark: rgba($base-color, 0.88);
+$white-color: #ffffff;
+
+$crema-color: #FFFFF4;
+
+$grey-color: #88888F;
+
+$grey2-color: #43434A;
+
+$black-color: #000000;
+
+
+$primary-color: $grey2-color;
+
+$secondary-color: $white-color;
+
+$text-color: $black-color;
+
+$text-color2: $grey-color;
+
+
+
+
+/* fonts variables */
+
+$titles: 'SpeziaBold'; 
+$paragraph: 'Spezia';

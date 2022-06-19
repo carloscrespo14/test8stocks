@@ -1,0 +1,35 @@
+@import '../../variables';
+
+.menu {
+    width: 95px;
+    height: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: $primary-color;
+    flex-direction:column;
+    img.menu-logo {
+        width: 40px;
+        margin-top: 30px;
+    }
+    
+    .menu-option-container{
+        height: calc(100% - 100px);
+    }
+
+    .menu-avatar-container{
+        width: 40px;
+        height: 40px;
+        background-color: $secondary-color;
+        border-radius: 30px;
+        align-self:center;
+        justify-self: flex-end;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .menu-avatar-container-img {
+            width: 60%;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@import '../../variables';
+
+.lists {
+    display: flex;
+    width: 99.9%;
+    height: calc(100vh - 180px);
+    background-color: $secondary-color;
+    flex-direction: column;
+    h1 {
+        color: $white-color;
+        padding: 10px 20px; 
+        font-size: 2em;
+    }
+    div.lists-table {
+        width: 98%;
+        height: 300px;
+        .MuiPaper-root {
+            box-shadow: none !important;
+        }
+    }
+    
+}
