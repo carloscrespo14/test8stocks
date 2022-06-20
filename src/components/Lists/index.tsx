@@ -1,83 +1,103 @@
-import React, {useMemo, useEffect} from 'react';
+import React, {useMemo, useEffect, useState} from 'react';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 
 import './index.scss';
 import HttpHandler  from '../../utils/httpHandler';
 
-type Person = {
-  firstName: string;
-  lastName: string;
-  address: string;
-  city: string;
-  state: string;
-};
+
+interface InfoData {
+  c: any[];
+  i: number;
+  p: number;
+  s: number;
+  t: string;
+  x: string;
+  z: string;
+  symbol:  string;
+}
+
+interface Info {
+  c: any[];
+  i: number;
+  p: number;
+  s: number;
+  t: string;
+  x: string;
+  z: string;
+}
+interface Trade {
+  AAPL:Info;
+  GOOG:Info;
+  MSFT:Info;
+}
+
+interface TradeResponse {
+  trades: Trade
+}
 
 const Lists: React.FC = () => {
 
-  useEffect(()=>{
-    const httpHandler = new HttpHandler();
-    httpHandler.getMethod('stocks/trades/latest', ['AAPL','GOOG', 'MSFT'])
-    httpHandler.getMethod('stocks/trades/latest', 'AAPL,GOOG,MSFT')
-  },[])
+  const [data,  setData] = useState<InfoData[]>([])
 
-  const columns = useMemo(
+  useEffect(()=>{
+
+    const httpHandler = new HttpHandler();
+   
+    httpHandler.getMethod('stocks/trades/latest', 'AAPL,GOOG,MSFT').then(
+
+      (res: any)  => { 
+
+        const response = res as TradeResponse;
+
+        let array: InfoData[] = [];
+
+        for (const [key, value] of Object.entries(response.trades)) {
+          const obj:InfoData = value;
+          obj.symbol = key;
+          array.push(obj)
+        }
+        
+        setData(array)
+        
+      },
+
+      (err: any) => console.log('err', err)
+    )
+  },[]);
+
+  const formatDate = (date: string) => {
+    return date;
+  }
+
+  const columns = useMemo( 
     () =>
       [
         {
-          header: 'First Name',
-          id: 'firstName',
+          header: 'ID',
+          id: 'i',
         },
         {
-          header: 'Last Name',
-          id: 'lastName',
+          header: 'Symbol',
+          id: 'symbol',
         },
         {
-          header: 'Address',
-          id: 'address',
+          header: 'Time',
+          id: 't',
+          Cell: ({ cell })  =>  (<p>{String(formatDate(String(cell.getValue())))}</p>)
         },
         {
-          header: 'City',
-          id: 'city',
+          header: 'Exchange',
+          id: 'x',
         },
         {
-          header: 'State',
-          id: 'state',
+          header: 'Price',
+          id: 'p',
         },
-      ] as MRT_ColumnDef<Person>[],
-    [],
-  );
-
-  const data = useMemo(
-    () => [
-      {
-        firstName: 'Dylan',
-        lastName: 'Murray',
-        address: '261 Erdman Ford',
-        city: 'East Daphne',
-        state: 'Kentucky',
-      },
-      {
-        firstName: 'Raquel',
-        lastName: 'Kohler',
-        address: '769 Dominic Grove',
-        city: 'Columbus',
-        state: 'Ohio',
-      },
-      {
-        firstName: 'Ervin',
-        lastName: 'Reinger',
-        address: '566 Brakus Inlet',
-        city: 'South Linda',
-        state: 'West Virginia',
-      },
-      {
-        firstName: 'Brittany',
-        lastName: 'McCullough',
-        address: '722 Emie Stream',
-        city: 'Lincoln',
-        state: 'Nebraska',
-      }
-    ],
+        {
+          header: 'Size',
+          id: 's',
+        }
+      ] as MRT_ColumnDef<InfoData>[],
     [],
   );
 
