@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/test8stocks/static/css/main.073c9b0a.css",
-    "main.js": "/test8stocks/static/js/main.31cfb866.js",
+    "main.css": "/test8stocks/static/css/main.f90e6b13.css",
+    "main.js": "/test8stocks/static/js/main.36651928.js",
     "static/js/787.07279562.chunk.js": "/test8stocks/static/js/787.07279562.chunk.js",
-    "static/media/logo.svg": "/test8stocks/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Spezia Regular.ttf": "/test8stocks/static/media/Spezia Regular.1ab7e7b65274eeaa48f4.ttf",
+    "static/media/Spezia Medium.ttf": "/test8stocks/static/media/Spezia Medium.52eb072621d1217f4322.ttf",
+    "static/media/Spezia Bold.ttf": "/test8stocks/static/media/Spezia Bold.352ca8c7ebc250cb89ed.ttf",
+    "static/media/logo.png": "/test8stocks/static/media/logo.f5f9e48d8a32a9b0bb61.png",
     "index.html": "/test8stocks/index.html",
-    "main.073c9b0a.css.map": "/test8stocks/static/css/main.073c9b0a.css.map",
-    "main.31cfb866.js.map": "/test8stocks/static/js/main.31cfb866.js.map",
+    "static/media/user-regular.svg": "/test8stocks/static/media/user-regular.7169812feca65327bbc058a3b336dff9.svg",
+    "main.f90e6b13.css.map": "/test8stocks/static/css/main.f90e6b13.css.map",
+    "main.36651928.js.map": "/test8stocks/static/js/main.36651928.js.map",
     "787.07279562.chunk.js.map": "/test8stocks/static/js/787.07279562.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.31cfb866.js"
+    "static/css/main.f90e6b13.css",
+    "static/js/main.36651928.js"
   ]
 }
