@@ -3,6 +3,8 @@
 /* colors variables */
 $lavanda-color: #7664EF;
 
+$magenta-color: #C2417D;
+
 $white-color: #ffffff;
 
 $crema-color: #FFFFF4;
@@ -14,7 +16,8 @@ $grey2-color: #43434A;
 $black-color: #000000;
 
 
-$primary-color: $grey2-color;
+/* themes variables */
+$primary-color: $crema-color;
 
 $secondary-color: $white-color;
 
@@ -23,9 +26,13 @@ $text-color: $black-color;
 $text-color2: $grey-color;
 
 
+/* Breakpoints */
+$breakpoint-tablet: 768px;
+
+$breakpoint-mobile: 768px;
 
 
 /* fonts variables */
-
 $titles: 'SpeziaBold'; 
+
 $paragraph: 'Spezia';

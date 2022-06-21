@@ -8,9 +8,14 @@
     align-items: center;
     background-color: $primary-color;
     flex-direction:column;
+    border-right: 1px solid $grey-color;
     img.menu-logo {
         width: 40px;
         margin-top: 30px;
+    }
+
+    img.menu-logo-mobile {
+       display: none;
     }
     
     .menu-option-container{
@@ -30,6 +35,25 @@
         align-items: center;
         .menu-avatar-container-img {
             width: 60%;
+        }
+    }
+    @media (max-width: $breakpoint-tablet) {
+        position: absolute;
+        width: 100vw;
+        height: 70px;
+        flex-direction: row;
+        justify-content:space-between;
+        background-color: $lavanda-color;
+        img.menu-logo-mobile {
+            display: block;
+            width: 40px;
+            padding-left: 10px;
+        }
+        img.menu-logo {
+           display: none;
+        }
+        .menu-avatar-container{
+           display: none;
         }
     }
 }

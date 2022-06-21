@@ -1,41 +1,16 @@
-import React, {useMemo, useEffect, useState} from 'react';
+import React, {useMemo, useEffect, useState, useContext} from 'react';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
+import moment from 'moment';
 
 import './index.scss';
 import HttpHandler  from '../../utils/httpHandler';
+import { AppContext } from '../../context/Context';
+import {InfoData, TradeResponse} from '../../interfaces/interfaces'
 
-
-interface InfoData {
-  c: any[];
-  i: number;
-  p: number;
-  s: number;
-  t: string;
-  x: string;
-  z: string;
-  symbol:  string;
-}
-
-interface Info {
-  c: any[];
-  i: number;
-  p: number;
-  s: number;
-  t: string;
-  x: string;
-  z: string;
-}
-interface Trade {
-  AAPL:Info;
-  GOOG:Info;
-  MSFT:Info;
-}
-
-interface TradeResponse {
-  trades: Trade
-}
 
 const Lists: React.FC = () => {
+
+  const { updateState } = useContext(AppContext)
 
   const [data,  setData] = useState<InfoData[]>([])
 
@@ -49,13 +24,14 @@ const Lists: React.FC = () => {
 
         const response = res as TradeResponse;
 
-        let array: InfoData[] = [];
+        const array: InfoData[] = [];
 
         for (const [key, value] of Object.entries(response.trades)) {
           const obj:InfoData = value;
           obj.symbol = key;
           array.push(obj)
         }
+        
         
         setData(array)
         
@@ -64,9 +40,25 @@ const Lists: React.FC = () => {
       (err: any) => console.log('err', err)
     )
   },[]);
+  
 
-  const formatDate = (date: string) => {
-    return date;
+  useEffect(()=>{
+
+    if(updateState) {
+
+      updateState(data.length, data[0]?.t)
+
+    }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[data])
+
+
+
+  const formatDate = (date: string) => {  
+
+    return moment(new Date(date)).format("YYYY-MM-DD HH:mm:ss");
+
   }
 
   const columns = useMemo( 
@@ -79,6 +71,7 @@ const Lists: React.FC = () => {
         {
           header: 'Symbol',
           id: 'symbol',
+          Cell: ({ cell })  => (<p className='symbols'>{String(cell.getValue())}</p>)
         },
         {
           header: 'Time',
@@ -103,22 +96,22 @@ const Lists: React.FC = () => {
 
   return (
     <section className='lists'>
-        <div className="container">
-          <div className='lists-table'>
-            <MaterialReactTable 
-              columns={columns} 
-              data={data}
-              enableColumnActions={false}
-              enableColumnFilters={false}
-              enablePagination={false}
-              enableSorting={true}
-              enableStickyHeader={false}
-              enableToolbarBottom={false}
-              enableToolbarTop={false} 
-            />
-          </div>
+      <div className="container">
+        <div className='lists-table'>
+          <MaterialReactTable 
+            columns={columns} 
+            data={data}
+            enableColumnActions={false}
+            enableColumnFilters={false}
+            enablePagination={false}
+            enableSorting={true}
+            enableStickyHeader={false}
+            enableToolbarBottom={false}
+            enableToolbarTop={false} 
+          />
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

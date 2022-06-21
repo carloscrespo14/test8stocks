@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/img/logo.png'
+import logoMobile from '../../assets/img/mobile-logo.png'
 import avatar from '../../assets/img/icons/user-regular.svg'
 import './index.scss';
 
@@ -8,6 +9,7 @@ const Menu: React.FC = () => {
     <aside className='menu'>
       <div className='menu-logo-container'>
         <img className='menu-logo' src={logo} alt='logo' />
+        <img className='menu-logo-mobile' src={logoMobile} alt='mobile' />
       </div>
       <div className='menu-option-container'>
       </div>

@@ -8,6 +8,13 @@ describe('Menu component',()=>{
         expect(logo).toHaveAttribute('src', 'logo.png');
         expect(logo).toHaveAttribute('alt', 'logo');
     });
+
+    it('has Mobile logo', () => {
+        render(<Menu />)
+        const Mobilelogo = screen.getByAltText(/mobile/i);
+        expect(Mobilelogo).toHaveAttribute('src', 'mobile-logo.png');
+        expect(Mobilelogo).toHaveAttribute('alt', 'mobile');
+    });
     
     it('has avatar', () => {
         render(<Menu />)
