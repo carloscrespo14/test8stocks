@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test8stocks/static/css/main.f4bc8dc4.css",
-    "main.js": "/test8stocks/static/js/main.75bbc50f.js",
+    "main.js": "/test8stocks/static/js/main.df6205d3.js",
     "static/js/787.07279562.chunk.js": "/test8stocks/static/js/787.07279562.chunk.js",
     "static/media/Spezia Regular.ttf": "/test8stocks/static/media/Spezia Regular.1ab7e7b65274eeaa48f4.ttf",
     "static/media/Spezia Medium.ttf": "/test8stocks/static/media/Spezia Medium.52eb072621d1217f4322.ttf",
@@ -10,11 +10,11 @@
     "index.html": "/test8stocks/index.html",
     "static/media/user-regular.svg": "/test8stocks/static/media/user-regular.7169812feca65327bbc058a3b336dff9.svg",
     "main.f4bc8dc4.css.map": "/test8stocks/static/css/main.f4bc8dc4.css.map",
-    "main.75bbc50f.js.map": "/test8stocks/static/js/main.75bbc50f.js.map",
+    "main.df6205d3.js.map": "/test8stocks/static/js/main.df6205d3.js.map",
     "787.07279562.chunk.js.map": "/test8stocks/static/js/787.07279562.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4bc8dc4.css",
-    "static/js/main.75bbc50f.js"
+    "static/js/main.df6205d3.js"
   ]
 }
