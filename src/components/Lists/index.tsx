@@ -7,12 +7,16 @@ import HttpHandler  from '../../utils/httpHandler';
 import { AppContext } from '../../context/Context';
 import {InfoData, TradeResponse} from '../../interfaces/interfaces'
 
+/**
+ * Component to to renden a lists the stock prices for 3 companies AAPL, GOOG and MSFT.
+ * @AppContext provides @appState (state) and @updateState (method to update state)
+**/
 
 const Lists: React.FC = () => {
 
   const { updateState } = useContext(AppContext)
 
-  const [data,  setData] = useState<InfoData[]>([])
+  const [data, setData] = useState<InfoData[]>([])
 
   useEffect(()=>{
 
@@ -41,7 +45,6 @@ const Lists: React.FC = () => {
     )
   },[]);
   
-
   useEffect(()=>{
 
     if(updateState) {
@@ -52,8 +55,6 @@ const Lists: React.FC = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[data])
-
-
 
   const formatDate = (date: string) => {  
 

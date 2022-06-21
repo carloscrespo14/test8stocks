@@ -4,6 +4,7 @@ import { AppState } from "../interfaces/interfaces"
 import { AppReducer } from "./AppReducer"
 import { AppContext } from "./Context"
 
+
 const INITIAL_STATE: AppState = {
     count: 0,
     date: ""

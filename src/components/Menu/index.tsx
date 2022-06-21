@@ -4,6 +4,10 @@ import logoMobile from '../../assets/img/mobile-logo.png'
 import avatar from '../../assets/img/icons/user-regular.svg'
 import './index.scss';
 
+/**
+ * Component to show a menu bar
+**/
+
 const Menu: React.FC = () => {
   return (
     <aside className='menu'>

@@ -1,10 +1,17 @@
 
-
+/* 
+    @HttpHandler class to define custome headers and request method to api
+*/
 export default class HttpHandler {
 
-    getMethod(endpoint: string, symbols: string[] | string) {
+    /* 
+        @getMethod: method to request data using fetch
+        @requestHeaders: custom headers
+    */
+
+    getMethod(endpoint: string, symbols: string) {
         
-        const  url= `${process.env.REACT_APP_APCA_BASE_URL}${endpoint}${symbols[0] ? '?symbols='+  symbols.toString() : '?symbols='+symbols}`;
+        const  url= `${process.env.REACT_APP_APCA_BASE_URL}${endpoint}${'?symbols='  +  symbols.toString()}`;
 
         const requestHeaders: any = { 
             'Accept': 'application/json',
